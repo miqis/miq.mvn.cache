@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.agilecoders.wicket</groupId>
+        <artifactId>bootstrap-parent</artifactId>
+        <version>7.0.3</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>wicket-bootstrap-core</artifactId>
+    <packaging>bundle</packaging>
+    <name>bootstrap-core</name>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/l0rdn1kk0n/wicket-bootstrap/issues</url>
+    </issueManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>de.agilecoders.wicket</groupId>
+            <artifactId>jquery-selectors</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.agilecoders.wicket.webjars</groupId>
+            <artifactId>wicket-webjars</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>popperjs__core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>modernizr</artifactId>
+            <version>${modernizr.version}</version>
+        </dependency>
+
+        <!--  WICKET DEPENDENCIES -->
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-extensions</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-request</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-util</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-tester</artifactId>
+        </dependency>
+
+        <!-- LOGGING DEPENDENCIES - LOG4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!--  JUNIT DEPENDENCY FOR TESTING -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+        </dependency>
+
+        <!-- HAMCREST DEPENDENCIES -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*.class</include>
+                    </includes>
+                    <excludedGroups>de.agilecoders.wicket.core.test.IntegrationTest</excludedGroups>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.2.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <groups>de.agilecoders.wicket.core.test.IntegrationTest</groups>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- BD - Allows for jar to be built with an OSGi compatiable manifest -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

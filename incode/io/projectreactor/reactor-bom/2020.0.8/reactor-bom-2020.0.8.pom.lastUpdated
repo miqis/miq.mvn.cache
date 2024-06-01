@@ -1,0 +1,11 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jun 01 02:17:32 WIB 2024
+https\://repository.jboss.org/nexus/content/groups/public-jboss/.error=
+https\://repository.jboss.org/nexus/content/groups/public/.lastUpdated=1717183052274
+https\://repo.maven.apache.org/maven2/.lastUpdated=1717183052347
+https\://repository.apache.org/content/groups/staging/.error=
+https\://repository.apache.org/content/groups/staging/.lastUpdated=1717183050010
+https\://repository.jboss.org/nexus/content/groups/public-jboss/.lastUpdated=1717183051428
+https\://raw.githubusercontent.com/apache-causeway-committers/causeway-nightly/master/mvn-snapshots/.lastUpdated=1717183048773
+https\://repository.jboss.org/nexus/content/groups/public/.error=
+https\://raw.githubusercontent.com/apache-causeway-committers/causeway-nightly/master/mvn-snapshots/.error=

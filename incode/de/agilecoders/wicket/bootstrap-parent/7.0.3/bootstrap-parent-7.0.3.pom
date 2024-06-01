@@ -1,0 +1,614 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+    <groupId>de.agilecoders.wicket</groupId>
+    <artifactId>bootstrap-parent</artifactId>
+    <version>7.0.3</version>
+    <packaging>pom</packaging>
+    <name>bootstrap-parent</name>
+
+    <description>wicket with bootstrap integration</description>
+    <url>https://github.com/l0rdn1kk0n/wicket-bootstrap</url>
+
+    <scm>
+        <url>git@github.com:l0rdn1kk0n/wicket-bootstrap.git</url>
+        <connection>scm:git:git@github.com/l0rdn1kk0n/wicket-bootstrap.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/l0rdn1kk0n/wicket-bootstrap.git</developerConnection>
+        <tag>bootstrap-parent-7.0.3</tag>
+    </scm>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/l0rdn1kk0n/wicket-bootstrap/issues</url>
+    </issueManagement>
+
+    <modules>
+        <module>bootstrap-core</module>
+        <module>bootstrap-extensions</module>
+        <module>bootstrap-themes</module>
+        <module>bootstrap-sass</module>
+        <module>bootstrap-samples</module>
+        <module>bootstrap-common-tests</module>
+    </modules>
+
+    <properties>
+        <!-- Encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <github.global.server>github</github.global.server>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.java.source>${java.version}</maven.java.source>
+        <maven.java.target>${java.version}</maven.java.target>
+
+        <bootstrap.version>5.3.3</bootstrap.version>
+        <wicket-webjars.version>4.0.3</wicket-webjars.version>
+        <wicket-jquery-selectors.version>4.0.4</wicket-jquery-selectors.version>
+        <popper.version>2.11.8</popper.version>
+
+        <enforcer.disable>true</enforcer.disable>
+        <pmd.disable>true</pmd.disable>
+        <jacoco.disable>true</jacoco.disable>
+        <checkstyle.disable>true</checkstyle.disable>
+        <findbugs.disable>true</findbugs.disable>
+
+        <!-- TODO -->
+        <apiguardian-api.version>1.1.2</apiguardian-api.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <contiperf.version>2.4.3</contiperf.version>
+        <doxia.version>1.0</doxia.version>
+        <!-- Note: closure-compiler -unshaded v20200920 (until at least v20210907) contains gson -->
+        <google-closure.version>v20231112</google-closure.version>
+        <jetty.version>11.0.20</jetty.version>
+        <jquerypp.version>1.0.1</jquerypp.version>
+        <jquery.version>3.7.1</jquery.version>
+        <junit-jupiter.version>5.10.2</junit-jupiter.version>
+        <junit-platform.version>1.10.2</junit-platform.version>
+        <jsass.version>5.11.0</jsass.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <logback.version>1.5.3</logback.version>
+        <modernizr.version>2.8.3-1</modernizr.version>
+        <mockito.version>5.11.0</mockito.version>
+        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+        <slf4j.version>2.0.12</slf4j.version>
+        <wicket.version>10.0.0</wicket.version>
+        <yuicompressor.version>2.4.8</yuicompressor.version>
+
+        <maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <maven-gpg-plugin.version>3.2.0</maven-gpg-plugin.version>
+        <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
+        <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
+        <maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
+        <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.configLocation>/de/agilecoders/maven/checkstyle-ruleset.xml</maven-checkstyle-plugin.configLocation>
+        <maven-checkstyle-plugin.suppressionsLocation>/de/agilecoders/maven/checkstyle-suppressions.xml</maven-checkstyle-plugin.suppressionsLocation>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-dependency-plugin.version>3.1.0</maven-dependency-plugin.version>
+        <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
+        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+        <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
+        <maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+        <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
+        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+        <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+        <maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
+        <maven-scm-publish-plugin.version>3.0.0</maven-scm-publish-plugin.version>
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+        <versions-maven-plugin.version>2.16.2</versions-maven-plugin.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-util</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-request</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-core</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-extensions</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-tester</artifactId>
+                <version>${wicket.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>jquery-selectors</artifactId>
+                <version>${wicket-jquery-selectors.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket.webjars</groupId>
+                <artifactId>wicket-webjars</artifactId>
+                <version>${wicket-webjars.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>bootstrap</artifactId>
+                <version>${bootstrap.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars.npm</groupId>
+                <artifactId>popperjs__core</artifactId>
+                <version>${popper.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>jquerypp</artifactId>
+                <version>${jquerypp.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>jquery</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>jquery</artifactId>
+                <version>${jquery.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-themes</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-sass</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-extensions</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-samples</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.agilecoders.wicket</groupId>
+                <artifactId>wicket-bootstrap-common-tests</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.kohsuke</groupId>
+                <artifactId>doxia-module-markdown</artifactId>
+                <version>${doxia.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>${jakarta.servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yahoo.platform.yui</groupId>
+                <artifactId>yuicompressor</artifactId>
+                <version>${yuicompressor.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.javascript</groupId>
+                <artifactId>closure-compiler-unshaded</artifactId>
+                <version>${google-closure.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apiguardian</groupId>
+                <artifactId>apiguardian-api</artifactId>
+                <version>${apiguardian-api.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <scope>test</scope>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <scope>test</scope>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-commons</artifactId>
+                <scope>test</scope>
+                <version>${junit-platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-engine</artifactId>
+                <scope>test</scope>
+                <version>${junit-platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <scope>test</scope>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+                <scope>test</scope>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <quiet>true</quiet>
+                        <links>
+                            <link>http://docs.oracle.com/javase/6/docs/api/</link>
+                            <link>http://junit-team.github.io/junit/javadoc/latest/</link>
+                            <link>http://www.slf4j.org/apidocs/</link>
+                        </links>
+                        <additionalJOptions>
+                            <additionalJOption>-J-Xmx32m</additionalJOption>
+                        </additionalJOptions>
+                        <doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
+                        <docletArtifact>
+                            <groupId>ch.raffael.pegdown-doclet</groupId>
+                            <artifactId>pegdown-doclet</artifactId>
+                            <version>1.1</version>
+                        </docletArtifact>
+                        <useStandardDocletOptions>true</useStandardDocletOptions>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>default-jar</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${maven.java.source}</source>
+                        <target>${maven.java.target}</target>
+                        <compilerVersion>${maven.java.source}</compilerVersion>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions-maven-plugin.version}</version>
+                    <inherited>true</inherited>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>${cobertura-maven-plugin.version}</version>
+                    <configuration>
+                        <format>xml</format>
+                        <maxmem>256m</maxmem>
+                        <!-- aggregated reports for multi-module projects -->
+                        <aggregate>true</aggregate>
+                        <check />
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.eluder.coveralls</groupId>
+                    <artifactId>coveralls-maven-plugin</artifactId>
+                    <version>${coveralls-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                    <configuration>
+                        <goals>deploy</goals>
+                        <mavenExecutorId>forked-path</mavenExecutorId>
+                        <useReleaseProfile>false</useReleaseProfile>
+                        <arguments>-Psonatype-oss-release</arguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <instructions>
+                            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                            <Bundle-Version>${project.version}</Bundle-Version>
+                        </instructions>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>Java 11</id>
+            <activation>
+                <jdk>11</jdk>
+            </activation>
+            <properties>
+                <!-- Disable javadoc linter when building with Java 8
+                 http://mail-archives.apache.org/mod_mbox/maven-users/201403.mbox/%3CCANWgJS5xHWiGE+Lecey+mZVbj9Via4JUWsaBeZtQr2aQNebupA@mail.gmail.com%3E
+                 -->
+                <additionalparam>-Xdoclint:-html</additionalparam>
+            </properties>
+        </profile>
+    </profiles>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>miha</id>
+            <name>Michael Haitz</name>
+            <email>michael.haitz@agilecoders.de</email>
+            <organization>agilecoders.de</organization>
+            <roles>
+                <role>Owner</role>
+                <role>Committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>mgrigorov</id>
+            <name>Martin Grigorov</name>
+            <email>mgrigorov@apache.org</email>
+            <organization>Apache</organization>
+            <roles>
+                <role>Committer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>Apache Nexus snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>Sonatype OSS snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>repo.clojars.org</id>
+            <url>https://repo.clojars.org</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+</project>
