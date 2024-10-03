@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>26</version>
+        <relativePath/>
+    </parent>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+    <version>6.0.0.Alpha2</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>17</java.version>
+        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <resteasy.spring.version>3.0.0.Alpha2</resteasy.spring.version>
+        <resteasy.version>6.1.0.Beta1</resteasy.version>
+        <springboot.version>3.0.0-M3</springboot.version>
+        <ver.mockito>4.3.1</ver.mockito>
+        <ver.objenesis>3.2</ver.objenesis>
+        <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
+        <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
+        <version.jakarta.ws.rs>3.1.0.RC1-jbossorg-1</version.jakarta.ws.rs>
+        <version.org.springframework>6.0.0-M4</version.org.springframework>
+        <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
+        <version.org.eclipse>2.0.4</version.org.eclipse>
+        <ver.wildfly.maven.plugin>3.0.0.Final</ver.wildfly.maven.plugin>
+        <ver.wildfly>26.0.1.Final</ver.wildfly>
+        <ver.rest-assured>3.1.0</ver.rest-assured>
+        <ver.testng>6.14.3</ver.testng>
+        <ver.jakarta.xml.bind-api>4.0.0-RC3</ver.jakarta.xml.bind-api>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
+    </properties>
+
+    <modules>
+        <module>resteasy-spring-boot-starter</module>
+        <module>sample-app</module>
+        <module>sample-app-for-wildfly</module>
+        <module>sample-app-no-jaxrs-application</module>
+        <module>resteasy-spring-boot-starter-test</module>
+    </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>jboss-releases-repository</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <!--    once Spring is final we can remove this.-->
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
